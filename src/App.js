@@ -3,6 +3,7 @@ import "./styles.css";
 
 import Navbar from "./components/Navbar/Navbar";
 import TaskList from "./components/TaskList/TaskList";
+import Footer from "./components/Footer/footer";
 
 let idAcc = 0;
 const generateId = () => {
@@ -71,6 +72,7 @@ export default function App() {
           onDeleteTask={deleteTask}
         />
       </div>
+      <Footer />
     </div>
   );
 }
