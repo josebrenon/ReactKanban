@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import "./styles.css";
 
 import Navbar from "./components/Navbar/Navbar";
@@ -37,8 +37,8 @@ export default function App() {
   };
 
   const deleteTask = (id) => {
-    setTasks((existingTasks) => {
-      return existingTasks.filter((task) => task.id !== id);
+    setTasks((exitingTasks) => {
+      return exitingTasks.filter((task) => task.id !== id);
     });
   };
 
@@ -47,7 +47,7 @@ export default function App() {
       <Navbar />
       <div className="container">
         <TaskList
-          title={`Pendente`}
+          title="Pendente"
           onAddTask={addTask}
           taskState="Pendente"
           tasks={tasks.filter((t) => t.state === "Pendente")}

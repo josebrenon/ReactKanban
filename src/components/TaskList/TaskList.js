@@ -1,7 +1,8 @@
 import React from "react";
 import "./tasklist.css";
-import { PropTypes } from "prop-types";
+import PropTypes from "prop-types";
 import plusIcon from "../../img/plus-icon.svg";
+
 import TaskItem from "../TaskItem/TaskItem";
 
 export default function TaskList({
@@ -12,13 +13,6 @@ export default function TaskList({
   onTaskUpdate,
   onDeleteTask,
 }) {
-  //   const [count, setCount] = useState(0);
-
-  //   const increment = () => {
-  //     setCount((currentCount) => {
-  //       return currentCount + 1;
-  //     });
-  //   };
   const addTask = () => {
     onAddTask("Nova Tarefa", taskState);
   };
@@ -39,12 +33,11 @@ export default function TaskList({
             />
           );
         })}
+        {tasks.length === 0 && <div className="empty-list">Lista Vazia</div>}
         <button onClick={addTask} className="btn">
-          <img src={plusIcon} />
+          <img src={plusIcon} alt="plus" />
           Adicionar Tarefa
         </button>
-        {/* {count}
-        <button onClick={increment}>Incrementar</button> */}
       </div>
     </div>
   );
@@ -54,4 +47,6 @@ TaskList.propTypes = {
   title: PropTypes.string.isRequired,
   onAddTask: PropTypes.func.isRequired,
   tasks: PropTypes.array.isRequired,
+  onTaskUpdate: PropTypes.func.isRequired,
+  onDeleteTask: PropTypes.func.isRequired,
 };

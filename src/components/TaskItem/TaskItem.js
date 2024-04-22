@@ -1,5 +1,5 @@
-import { React, useState } from "react";
-import { PropTypes } from "prop-types";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import "./task-item.css";
 
 export default function TaskItem({
@@ -21,7 +21,7 @@ export default function TaskItem({
   const onKeyPress = (event) => {
     if (event.key === "Enter") {
       setIsEditing(false);
-      if (editableTitle.lenght === 0) {
+      if (editableTitle.length === 0) {
         onDeleteTask(id);
       }
     }
@@ -33,12 +33,14 @@ export default function TaskItem({
 
   if (isEditing) {
     return (
-      <input
-        type="text"
-        value={editableTitle}
-        onChange={onTitleChange}
-        onKeyPress={onKeyPress}
-      />
+      <div className="task-item">
+        <input
+          type="text"
+          value={editableTitle}
+          onChange={onTitleChange}
+          onKeyPress={onKeyPress}
+        />
+      </div>
     );
   } else {
     return (
@@ -58,4 +60,6 @@ TaskItem.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   taskState: PropTypes.string.isRequired,
+  onTaskUpdate: PropTypes.func.isRequired,
+  onDeleteTask: PropTypes.func.isRequired,
 };
