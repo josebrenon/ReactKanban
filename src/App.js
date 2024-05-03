@@ -46,6 +46,7 @@ export default function App() {
   return (
     <div className="App">
       <Navbar />
+      <h1 style={{ textAlign: "center" }}>React Kanban</h1>
       <div className="container">
         <TaskList
           title="Pendente"
