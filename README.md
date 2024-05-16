@@ -1,2 +1,2 @@
 # ReactKanban
-Link do Projeto [aqui](https://gj2pfh-3000.csb.app/)
+Link do Projeto [aqui](https://josebrenon-reactkanban.netlify.app/)
