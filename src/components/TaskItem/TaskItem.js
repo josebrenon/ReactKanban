@@ -12,7 +12,9 @@ export default function TaskItem({
   const [isEditing, setIsEditing] = useState(false);
   const [editableTitle, setEditableTitle] = useState(title);
 
+  
   function deleta(id){
+    
     const resposta = confirm("Quer mesmo deletar essa tarefa?")
     if (resposta == true) {
       onDeleteTask(id)
