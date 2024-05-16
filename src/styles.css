@@ -9,7 +9,7 @@ body {
   width: 100%;
     height: 100vh;
 
-    background-color: #333;
+    background-color: #0079bf;
     color: white;
 
     display: flex;
@@ -69,4 +69,23 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 8px;
+}
+
+button.deleteAll{
+  border: 1px solid #ffffff;
+  background: none;
+  padding: 15px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 150px;
+  margin: 30px auto;
+  
+
+}
+button.deleteAll:hover{
+  border: 1px solid #ff004c;
+  background: #ff004c;
+  color: white;
 }

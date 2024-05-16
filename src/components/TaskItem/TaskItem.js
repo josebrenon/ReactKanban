@@ -12,6 +12,13 @@ export default function TaskItem({
   const [isEditing, setIsEditing] = useState(false);
   const [editableTitle, setEditableTitle] = useState(title);
 
+  function deleta(id){
+    onDeleteTask(id)
+}
+  function Adicionar(){
+    setIsEditing(false);
+  }
+
   const onTitleChange = (event) => {
     const newTitle = event.target.value;
     setEditableTitle(newTitle);
@@ -36,21 +43,27 @@ export default function TaskItem({
       <div className="task-item">
         <input
           type="text"
+          placeholder="Nova tarefa"
           value={editableTitle}
           onChange={onTitleChange}
           onKeyPress={onKeyPress}
         />
+        <button onClick={() => {Adicionar()}} className="add">Add</button>
       </div>
     );
   } else {
     return (
       <div className="task-item">
-        <div onClick={(e) => setIsEditing(true)}>{editableTitle}</div>
+        <div onClick={(e) => setIsEditing(true)}>{editableTitle}
+        </div>
         <select onChange={onTaskStateChange} value={taskState}>
           <option value="Pendente">Pendente</option>
           <option value="Fazendo">Fazendo</option>
           <option value="Completa">Completa</option>
         </select>
+        <button 
+              onClick={() => {deleta(id)}}
+              className="del">Delete</button>
       </div>
     );
   }

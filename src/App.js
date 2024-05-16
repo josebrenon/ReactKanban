@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
 
 import Navbar from "./components/Navbar/Navbar";
@@ -12,7 +12,14 @@ const generateId = () => {
 };
 
 export default function App() {
-  const [tasks, setTasks] = useState([]);
+
+  const listaStorage = localStorage.getItem('Tasks')
+
+  const [tasks, setTasks] = useState(listaStorage ? JSON.parse(listaStorage) : []);
+
+  useEffect(() => {
+    localStorage.setItem('Tasks', JSON.stringify(tasks))
+}, [tasks])
 
   const addTask = (title, state) => {
     const newTask = {
@@ -43,10 +50,14 @@ export default function App() {
     });
   };
 
+  function deletaTudo(){
+        setTasks([])
+  }
+
   return (
     <div className="App">
       <Navbar />
-      <h1 style={{ textAlign: "center" }}>React Kanban</h1>
+      
       <div className="container">
         <TaskList
           title="Pendente"
@@ -73,6 +84,13 @@ export default function App() {
           onDeleteTask={deleteTask}
         />
       </div>
+
+      {
+        tasks.length > 0 && <button 
+        onClick={() => {deletaTudo()}}        
+        className="deleteAll">Deletar Todas</button>
+      }
+      
       <Footer />
     </div>
   );
