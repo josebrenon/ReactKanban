@@ -51,7 +51,12 @@ export default function App() {
   };
 
   function deletaTudo(){
-        setTasks([])
+    
+    const resposta = confirm("Quer mesmo deletar todas as tarefas?")
+    if (resposta == true) {
+      setTasks([])
+    }
+
   }
 
   return (
